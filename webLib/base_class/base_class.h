@@ -6,10 +6,9 @@ class BaseClass {
 public:
   BaseClass(FileReader *fileReader);
   BaseClass() : BaseClass(new FileReader()){};
-  ~BaseClass() { delete fileReader; }
   uint32_t getBalance() { return fileData.balance; }
 
 protected:
   FileData fileData = {};
-  FileReader *fileReader = nullptr;
+  std::unique_ptr<FileReader> fileReader;
 };
