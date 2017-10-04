@@ -30,3 +30,4 @@ include_directories("${PROJECT_SOURCE_DIR}")
 
 add_subdirectory(webLib)
 add_subdirectory(webExe)
+add_subdirectory(unit_tests)
