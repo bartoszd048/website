@@ -15,7 +15,7 @@ if(WIN32)
     set(CGICC_LIB_PATH "${CGICC_PATH}/bin/windows")
 else()
     set(CGICC_LIB_NAME "libcgicc.so")
-    set(CGICC_LIB_PATH "${CGICC_PATH}/bin/linux}")
+    set(CGICC_LIB_PATH "${CGICC_PATH}/bin/linux")
 endif()
 
 if(CMAKE_BUILD_TYPE STREQUAL "debug")
