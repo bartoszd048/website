@@ -3,17 +3,29 @@ project (Website)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+if (NOT DEFINED CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "release" CACHE STRING "Set default CMAKE_BUILD_TYPE" FORCE)
+endif()
+STRING(TOLOWER "${CMAKE_BUILD_TYPE}" CMAKE_BUILD_TYPE)
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+
 set(CGICC_PATH "third_party/cgicc")
 if(WIN32)
     set(CGICC_LIB_NAME "cgicc.dll")
-    set(CGICC_LIB_PATH "${CGICC_PATH}/bin/windows")
+    set(CGICC_LIB_PATH "${CGICC_PATH}/bin/windows/${BUILD_TYPE}")
 else()
     set(CGICC_LIB_NAME "libcgicc.so")
-    set(CGICC_LIB_PATH "${CGICC_PATH}/bin/linux")
+    set(CGICC_LIB_PATH "${CGICC_PATH}/bin/linux/${BUILD_TYPE}")
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL "debug")
+    set(CGICC_LIB_PATH "${CGICC_LIB_PATH}/debug")
+else()
+    set(CGICC_LIB_PATH "${CGICC_LIB_PATH}/release")
 endif()
 
 link_directories("${CGICC_LIB_PATH}")
-include_directories("${CGICC_PATH}")
+include_directories("third_party")
 
 
 add_executable(website main.cpp)
