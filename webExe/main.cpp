@@ -8,7 +8,7 @@ using namespace std;
 using namespace cgicc;
 
 int main(int argc, char **argv, char **envp) {
-  BaseClass baseClass("data");
+  BaseClass baseClass;
   cout << HTTPHTMLHeader() << endl; // Content-type: text/html
 
   cout << html() << head(title("Title")) << endl;

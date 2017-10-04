@@ -1,7 +1,8 @@
 #include "webLib/base_class/base_class.h"
 
-BaseClass::BaseClass(std::string filename) {
-  fileReader.reset(new FileReader());
-  fileReader->openAndLockFile(filename);
+BaseClass::BaseClass(FileReader *fileReader) {
+  this->fileReader = fileReader;
+
+  fileReader->openAndLockFile("data");
   fileReader->readFromFile(fileData);
 }

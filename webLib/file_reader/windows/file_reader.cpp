@@ -22,7 +22,7 @@ void FileReader::readFromFile(FileData &fileData) {
   ReadFile(fileHandle, &fileData, sizeof(FileData), &read, &overlapped);
 }
 
-void FileReader::closeAndUnlockFile() {
+void FileReader::unlockAndCloseFile() {
   UnlockFile(fileHandle, 0, 0, sizeof(FileData), 0);
   CloseHandle(fileHandle);
 }

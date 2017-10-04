@@ -4,4 +4,4 @@ void FileReader::openAndLockFile(std::string filename) {}
 
 void FileReader::readFromFile(FileData &fileData) {}
 
-void FileReader::closeAndUnlockFile() {}
+void FileReader::unlockAndCloseFile() {}

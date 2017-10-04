@@ -16,9 +16,14 @@ file(GLOB_RECURSE UT_BASECLASS_FILES
     "${PROJECT_SOURCE_DIR}/unit_tests/base_class_tests/*.cpp"
     "${PROJECT_SOURCE_DIR}/unit_tests/base_class_tests/*.h"
 )
-
 source_group("base_class_tests" FILES ${UT_BASECLASS_FILES})
 
-add_executable(unitTests ${UT_BASECLASS_FILES})
+file(GLOB_RECURSE UT_MOCKS_FILES
+    "${PROJECT_SOURCE_DIR}/unit_tests/mocks/*.h"
+    "${PROJECT_SOURCE_DIR}/unit_tests/mocks/*.cpp"
+)
+source_group("mocks" FILES ${UT_MOCKS_FILES})
+
+add_executable(unitTests ${UT_BASECLASS_FILES} ${UT_MOCKS_FILES})
 target_link_libraries(unitTests gtest gmock)
 target_link_libraries(unitTests webLib)

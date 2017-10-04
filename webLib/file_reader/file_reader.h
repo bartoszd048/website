@@ -3,9 +3,11 @@
 
 class FileReader {
 public:
-  ~FileReader() { closeAndUnlockFile(); }
-  void openAndLockFile(std::string filename);
-  void readFromFile(FileData &fileData);
-  void closeAndUnlockFile();
+  virtual ~FileReader() { unlockAndCloseFile(); }
+  virtual void openAndLockFile(std::string filename);
+  virtual void readFromFile(FileData &fileData);
+  virtual void unlockAndCloseFile();
+
+protected:
   void *fileHandle = nullptr;
 };
