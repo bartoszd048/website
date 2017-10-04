@@ -1,0 +1,4 @@
+class BaseClass {
+public:
+  BaseClass();
+};

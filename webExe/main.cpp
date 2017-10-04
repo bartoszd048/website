@@ -1,5 +1,1 @@
-#include "webLib/hw.h"
-
-int main(int argc, char **argv, char **envp) {
-  hw();
-}
+int main(int argc, char **argv, char **envp) {}
