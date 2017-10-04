@@ -2,6 +2,6 @@
 #include "gtest/gtest.h"
 
 TEST(BaseClassTest, basicTest) {
-  auto bc = new BaseClass();
+  auto bc = new BaseClass("x.txt");
   delete bc;
 }
