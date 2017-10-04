@@ -1,9 +1,6 @@
-#include "cgicc/Cgicc.h"
-#include <cgicc/HTMLClasses.h>
-#include <cgicc/HTTPHTMLHeader.h>
-#include <iostream>
+#include "webLib/hw.h"
 
-int main(int argc, char **argv, char **envp) {
+void hw() {
   std::cout << cgicc::HTTPHTMLHeader() << std::endl;
 
   std::cout << cgicc::html() << cgicc::head() << cgicc::title("Hello World")

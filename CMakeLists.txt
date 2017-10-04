@@ -26,12 +26,7 @@ endif()
 
 link_directories("${CGICC_LIB_PATH}")
 include_directories("third_party")
+include_directories("${PROJECT_SOURCE_DIR}")
 
-
-add_executable(website main.cpp)
-target_link_libraries(website cgicc)
-
-add_custom_command(TARGET website POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    "${PROJECT_SOURCE_DIR}/${CGICC_LIB_PATH}/${CGICC_LIB_NAME}"
-    $<TARGET_FILE_DIR:website>)
+add_subdirectory(webLib)
+add_subdirectory(webExe)
