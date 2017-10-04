@@ -1,4 +1,3 @@
-#pragma once
 #include "unit_tests/mocks/mock_file_reader.h"
 
 MockFileReader::MockFileReader() : FileReader() {
