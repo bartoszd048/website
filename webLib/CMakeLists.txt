@@ -5,9 +5,9 @@ file(GLOB_RECURSE WEBLIB_BASECLASS_FILES
 source_group("base_class" FILES ${WEBLIB_BASECLASS_FILES})
 
 file(GLOB_RECURSE WEBLIB_FILESMANAGER_FILES
-    "${PROJECT_SOURCE_DIR}/webLib/files_manager/${OS_TYPE}/*.cpp"
-    "${PROJECT_SOURCE_DIR}/webLib/files_manager/*.h"
-    "${PROJECT_SOURCE_DIR}/webLib/files_manager/files_manager_parser.cpp"
+    "${PROJECT_SOURCE_DIR}/webLib/files_manager/files_manager_${OS_TYPE}.cpp"
+    "${PROJECT_SOURCE_DIR}/webLib/files_manager/files_manager.h"
+    "${PROJECT_SOURCE_DIR}/webLib/files_manager/files_manager.cpp"
 )
 source_group("files_manager" FILES ${WEBLIB_FILESMANAGER_FILES})
 

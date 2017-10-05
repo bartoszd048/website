@@ -3,6 +3,5 @@
 BaseClass::BaseClass(FilesManager *filesManager) {
   this->filesManager.reset(filesManager);
 
-  filesManager->openAndLockFile("data");
-  filesManager->readFromFile(fileData);
+  filesManager->obtainData("data", fileData);
 }

@@ -1,5 +1,13 @@
 #include "webLib/files_manager/files_manager.h"
 
+void FilesManager::obtainData(std::string file, FileData &fileData) {
+  openAndLockFile(file);
+  auto stringData = readFromFile();
+  unlockAndCloseFile();
+
+  parseFile(stringData, fileData);
+}
+
 void FilesManager::parseFile(std::string &str, FileData &fileData) {
   size_t lineStart = 0;
   size_t valueStart = 0;
@@ -16,11 +24,11 @@ void FilesManager::parseFile(std::string &str, FileData &fileData) {
   fileData.salary = std::stoi(findSubstr("salary:"));
   auto numExp = std::stoi(findSubstr("numExp:"));
 
-  Expense exp = {};
   for (int i = 0; i < numExp; i++) {
-    exp.name = findSubstr("expName:");
-    exp.done = !!std::stoi(findSubstr("expDone:"));
-    exp.value = std::stoi(findSubstr("expValue:"));
-    fileData.expenses.push_back(exp);
+    fileData.expenses.push_back({
+        findSubstr("expName:"),
+        !!std::stoi(findSubstr("expDone:")),
+        static_cast<uint32_t>(std::stoi(findSubstr("expValue:"))),
+    });
   }
 }

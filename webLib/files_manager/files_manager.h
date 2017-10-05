@@ -3,14 +3,16 @@
 
 class FilesManager {
 public:
-  virtual ~FilesManager() { unlockAndCloseFile(); }
-  virtual void openAndLockFile(std::string filename);
-  virtual void readFromFile(FileData &fileData);
-  virtual void writeToFile(FileData &fileData);
-  virtual void unlockAndCloseFile();
+  virtual ~FilesManager() = default;
+  void obtainData(std::string file, FileData &fileData);
 
 protected:
-  void parseFile(std::string &str, FileData &fileData);
-  std::string fileName = "";
+  // os specific
+  virtual void openAndLockFile(std::string filename);
+  virtual std::string readFromFile();
+  // virtual void writeToFile(FileData &fileData);
+  virtual void unlockAndCloseFile();
+
   void *fileHandle = nullptr;
+  void parseFile(std::string &str, FileData &fileData);
 };

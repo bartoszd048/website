@@ -2,8 +2,8 @@
 
 void FilesManager::openAndLockFile(std::string filename) {}
 
-void FilesManager::readFromFile(FileData &fileData) {}
+std::string FilesManager::readFromFile() {}
 
-void FilesManager::writeToFile(FileData &fileData){};
+/*void FilesManager::writeToFile(FileData &fileData) {}*/
 
 void FilesManager::unlockAndCloseFile() {}

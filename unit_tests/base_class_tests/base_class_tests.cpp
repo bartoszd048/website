@@ -3,15 +3,13 @@
 
 TEST(BaseClassTest, initialize) {
   NiceMock<MockFilesManager> *filesMngr = new NiceMock<MockFilesManager>();
-  InSequence is;
 
-  EXPECT_CALL(*filesMngr, openAndLockFile("data")).Times(1);
-  EXPECT_CALL(*filesMngr, readFromFile(_)).Times(1);
+  EXPECT_CALL(*filesMngr, readFromFile()).Times(1);
 
   BaseClass *baseClass = new BaseClass(filesMngr);
-  EXPECT_EQ(filesMngr->mockFileData.wallet, baseClass->getWallet());
+  EXPECT_EQ(filesMngr->mockExpectedFileData.wallet, baseClass->getWallet());
 
-  EXPECT_CALL(*filesMngr, writeToFile(_)).Times(1);
-  EXPECT_CALL(*filesMngr, unlockAndCloseFile()).Times(1);
+  //  EXPECT_CALL(*filesMngr, writeToFile(_)).Times(1);
+
   delete baseClass;
 }
