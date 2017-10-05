@@ -13,5 +13,5 @@ public:
   MOCK_METHOD1(readFromFile, void(FileData &fileData));
   MOCK_METHOD1(writeToFile, void(FileData &fileData));
   MOCK_METHOD0(unlockAndCloseFile, void());
-  FileData mockFileData = {123};
+  FileData mockFileData = {};
 };

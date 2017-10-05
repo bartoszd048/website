@@ -9,7 +9,7 @@ TEST(BaseClassTest, initialize) {
   EXPECT_CALL(*filesMngr, readFromFile(_)).Times(1);
 
   BaseClass *baseClass = new BaseClass(filesMngr);
-  EXPECT_EQ(filesMngr->mockFileData.balance, baseClass->getBalance());
+  EXPECT_EQ(filesMngr->mockFileData.wallet, baseClass->getWallet());
 
   EXPECT_CALL(*filesMngr, writeToFile(_)).Times(1);
   EXPECT_CALL(*filesMngr, unlockAndCloseFile()).Times(1);

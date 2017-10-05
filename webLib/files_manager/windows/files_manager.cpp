@@ -20,7 +20,9 @@ void FilesManager::openAndLockFile(std::string filename) {
 void FilesManager::readFromFile(FileData &fileData) {
   OVERLAPPED overlapped = {};
   DWORD read = 0;
-  ReadFile(fileHandle, &fileData, sizeof(FileData), &read, &overlapped);
+  char str[1024] = {};
+  ReadFile(fileHandle, str, 1024, &read, &overlapped);
+  parseFile(std::string(str), fileData);
 }
 
 void FilesManager::writeToFile(FileData &fileData) {

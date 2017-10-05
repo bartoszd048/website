@@ -10,6 +10,7 @@ public:
   virtual void unlockAndCloseFile();
 
 protected:
+  void parseFile(std::string &str, FileData &fileData);
   std::string fileName = "";
   void *fileHandle = nullptr;
 };

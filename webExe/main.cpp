@@ -14,7 +14,7 @@ int main(int argc, char **argv, char **envp) {
   cout << html() << head(title("Title")) << endl;
   cout << body() << endl;
 
-  cout << "Balance: " << baseClass.getBalance() << endl;
+  cout << "Wallet: " << baseClass.getWallet() << endl;
 
   cout << body() << html() << endl;
 }
