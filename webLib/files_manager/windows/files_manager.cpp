@@ -14,7 +14,7 @@ void FilesManager::openAndLockFile(std::string filename) {
       LockFileEx(fileHandle, LOCKFILE_EXCLUSIVE_LOCK, 0, sizeof(FileData), 0,
                  &overlapped);
     }
-  } while ((int)handle != -1);
+  } while ((int)handle == -1);
 }
 
 void FilesManager::readFromFile(FileData &fileData) {
