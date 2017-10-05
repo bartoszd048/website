@@ -4,16 +4,16 @@ file(GLOB_RECURSE WEBLIB_BASECLASS_FILES
 )
 source_group("base_class" FILES ${WEBLIB_BASECLASS_FILES})
 
-file(GLOB_RECURSE WEBLIB_FILEREADER_FILES
-    "${PROJECT_SOURCE_DIR}/webLib/file_reader/${OS_TYPE}/*.cpp"
-    "${PROJECT_SOURCE_DIR}/webLib/file_reader/*.h"
+file(GLOB_RECURSE WEBLIB_FILESMANAGER_FILES
+    "${PROJECT_SOURCE_DIR}/webLib/files_manager/${OS_TYPE}/*.cpp"
+    "${PROJECT_SOURCE_DIR}/webLib/files_manager/*.h"
 )
-source_group("file_reader" FILES ${WEBLIB_FILEREADER_FILES})
+source_group("files_manager" FILES ${WEBLIB_FILESMANAGER_FILES})
 
 file(GLOB_RECURSE WEBLIB_HELPERS_FILES
     "${PROJECT_SOURCE_DIR}/webLib/helpers/*.h"
 )
 source_group("helpers" FILES ${WEBLIB_HELPERS_FILES})
 
-add_library(webLib ${WEBLIB_BASECLASS_FILES} ${WEBLIB_FILEREADER_FILES} ${WEBLIB_HELPERS_FILES})
+add_library(webLib ${WEBLIB_BASECLASS_FILES} ${WEBLIB_FILESMANAGER_FILES} ${WEBLIB_HELPERS_FILES})
 target_link_libraries(webLib cgicc)

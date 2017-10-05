@@ -1,8 +1,8 @@
 #include "webLib/base_class/base_class.h"
 
-BaseClass::BaseClass(FileReader *fileReader) {
-  this->fileReader.reset(fileReader);
+BaseClass::BaseClass(FilesManager *filesManager) {
+  this->filesManager.reset(filesManager);
 
-  fileReader->openAndLockFile("data");
-  fileReader->readFromFile(fileData);
+  filesManager->openAndLockFile("data");
+  filesManager->readFromFile(fileData);
 }

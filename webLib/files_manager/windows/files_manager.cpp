@@ -1,7 +1,8 @@
-#include "webLib/file_reader/file_reader.h"
+#include "webLib/files_manager/files_manager.h"
 #include <windows.h>
 
-void FileReader::openAndLockFile(std::string filename) {
+void FilesManager::openAndLockFile(std::string filename) {
+  this->fileName = filename;
   OVERLAPPED overlapped = {};
   HANDLE handle = 0;
   do {
@@ -16,13 +17,19 @@ void FileReader::openAndLockFile(std::string filename) {
   } while ((int)handle != -1);
 }
 
-void FileReader::readFromFile(FileData &fileData) {
+void FilesManager::readFromFile(FileData &fileData) {
   OVERLAPPED overlapped = {};
   DWORD read = 0;
   ReadFile(fileHandle, &fileData, sizeof(FileData), &read, &overlapped);
 }
 
-void FileReader::unlockAndCloseFile() {
+void FilesManager::writeToFile(FileData &fileData) {
+  OVERLAPPED overlapped = {};
+  DWORD written = 0;
+  WriteFile(fileHandle, &fileData, sizeof(FileData), &written, &overlapped);
+}
+
+void FilesManager::unlockAndCloseFile() {
   UnlockFile(fileHandle, 0, 0, sizeof(FileData), 0);
   CloseHandle(fileHandle);
 }
