@@ -6,7 +6,7 @@ class BaseClass {
 public:
   BaseClass(FilesManager *filesManager);
   BaseClass() : BaseClass(new FilesManager()){};
- // ~BaseClass() { filesManager->writeToFile(fileData); }
+  ~BaseClass() { filesManager->updateFile("data", fileData); }
   uint32_t getWallet() { return fileData.wallet; }
 
 protected:

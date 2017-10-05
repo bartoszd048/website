@@ -20,12 +20,12 @@ std::string FilesManager::readFromFile() {
   return std::string(str);
 }
 
-/*void FilesManager::writeToFile(FileData &fileData) {
+void FilesManager::writeToFile(std::string &data) {
   OVERLAPPED overlapped = {};
   DWORD written = 0;
 
-  WriteFile(fileHandle, &fileData, sizeof(FileData), &written, &overlapped);
-}*/
+  WriteFile(fileHandle, data.c_str(), data.length(), &written, &overlapped);
+}
 
 void FilesManager::unlockAndCloseFile() {
   UnlockFile(fileHandle, 0, 0, sizeof(FileData), 0);

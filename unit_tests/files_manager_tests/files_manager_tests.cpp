@@ -24,3 +24,14 @@ TEST(FilesManagerTest, obtainData) {
     EXPECT_EQ(expectedExpense.done, retExpense.done);
   }
 }
+
+TEST(FilesManagerTest, updateData) {
+  NiceMock<MockFilesManager> filesMngr;
+
+  InSequence is;
+  EXPECT_CALL(filesMngr, openAndLockFile("data")).Times(1);
+  EXPECT_CALL(filesMngr, writeToFile(filesMngr.mockStringData)).Times(1);
+  EXPECT_CALL(filesMngr, unlockAndCloseFile()).Times(1);
+
+  filesMngr.updateFile("data", filesMngr.mockExpectedFileData);
+}

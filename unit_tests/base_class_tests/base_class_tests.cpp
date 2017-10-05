@@ -9,7 +9,6 @@ TEST(BaseClassTest, initialize) {
   BaseClass *baseClass = new BaseClass(filesMngr);
   EXPECT_EQ(filesMngr->mockExpectedFileData.wallet, baseClass->getWallet());
 
-  //  EXPECT_CALL(*filesMngr, writeToFile(_)).Times(1);
-
+  EXPECT_CALL(*filesMngr, writeToFile(filesMngr->mockStringData)).Times(1);
   delete baseClass;
 }

@@ -10,7 +10,7 @@ public:
   MockFilesManager();
   MOCK_METHOD1(openAndLockFile, void(std::string filename));
   MOCK_METHOD0(readFromFile, std::string());
-  // MOCK_METHOD1(writeToFile, void(FileData &fileData));
+  MOCK_METHOD1(writeToFile, void(std::string &data));
   MOCK_METHOD0(unlockAndCloseFile, void());
 
   std::string mockStringData = "";
