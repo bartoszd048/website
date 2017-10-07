@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+typedef std::vector<std::pair<std::string, std::string>> ParamVec;
+
 struct Expense {
   std::string name;
   bool done;
